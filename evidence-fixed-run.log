@@ -1,0 +1,189 @@
+﻿2026-10-07T13:21:38.6816840Z Current runner version: '2.337.0'
+2026-10-07T13:21:38.6909451Z ##[group]Runner Image Provisioner
+2026-10-07T13:21:38.6931813Z Hosted Compute Agent
+2026-10-07T13:21:38.6933201Z Version: 20260901.588
+2026-10-07T13:21:38.6934381Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-07T13:21:38.6935898Z Build Date: 2026-09-01T19:56:44Z
+2026-10-07T13:21:38.6937129Z Worker ID: {1e249b7b-e7f8-4bcc-b25a-189b40e0c592}
+2026-10-07T13:21:38.6938436Z Azure Region: westus3
+2026-10-07T13:21:38.6939837Z ##[endgroup]
+2026-10-07T13:21:38.6942368Z ##[group]Operating System
+2026-10-07T13:21:38.6944285Z Ubuntu
+2026-10-07T13:21:38.6945236Z 24.04.5
+2026-10-07T13:21:38.6946347Z LTS
+2026-10-07T13:21:38.6947357Z ##[endgroup]
+2026-10-07T13:21:38.6948377Z ##[group]Runner Image
+2026-10-07T13:21:38.6970206Z Image: ubuntu-24.04
+2026-10-07T13:21:38.6971449Z Version: 20260927.320.1
+2026-10-07T13:21:38.6974026Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-07T13:21:38.6976752Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-07T13:21:38.6978732Z ##[endgroup]
+2026-10-07T13:21:38.6981469Z ##[group]GITHUB_TOKEN Permissions
+2026-10-07T13:21:38.6985456Z Checks: write
+2026-10-07T13:21:38.6986461Z Contents: read
+2026-10-07T13:21:38.6987606Z Metadata: read
+2026-10-07T13:21:38.6988684Z Packages: write
+2026-10-07T13:21:38.6992345Z ##[endgroup]
+2026-10-07T13:21:38.6995850Z Secret source: Actions
+2026-10-07T13:21:38.6997697Z Cache mode: read
+2026-10-07T13:21:38.6999463Z Prepare workflow directory
+2026-10-07T13:21:38.7694068Z Prepare all required actions
+2026-10-07T13:21:38.7834638Z Getting action download info
+2026-10-07T13:21:39.1629174Z Download action repository 'actions/checkout@v3' (SHA:a37ce9120846195fa4ece8f58b268e6043cb2f26)
+2026-10-07T13:21:39.3620434Z Uses: taylorhawksec/ci-replica-poc/.github/workflows/test-workflow.yml@refs/heads/main (bdf2baba10087bef36de85076572dc73e4d9bbcc)
+2026-10-07T13:21:39.3628090Z ##[group] Inputs
+2026-10-07T13:21:39.3629072Z   test_command: run-tests
+2026-10-07T13:21:39.3630467Z   pr_number: 1
+2026-10-07T13:21:39.3631883Z   is_pr_comment: true
+2026-10-07T13:21:39.3632780Z ##[endgroup]
+2026-10-07T13:21:39.3633707Z Complete job name: integration-tests / run-tests
+2026-10-07T13:21:39.4489957Z ##[group]Run actions/checkout@v3
+2026-10-07T13:21:39.4490998Z with:
+2026-10-07T13:21:39.4491455Z   ref: refs/pull/1/head
+2026-10-07T13:21:39.4492005Z   repository: taylorhawksec/ci-replica-poc
+2026-10-07T13:21:39.4495920Z   token: ***
+2026-10-07T13:21:39.4496376Z   ssh-strict: true
+2026-10-07T13:21:39.4496852Z   persist-credentials: true
+2026-10-07T13:21:39.4497370Z   clean: true
+2026-10-07T13:21:39.4497835Z   sparse-checkout-cone-mode: true
+2026-10-07T13:21:39.4498374Z   fetch-depth: 1
+2026-10-07T13:21:39.4498820Z   fetch-tags: false
+2026-10-07T13:21:39.4499278Z   lfs: false
+2026-10-07T13:21:39.4499948Z   submodules: false
+2026-10-07T13:21:39.4500427Z   set-safe-directory: true
+2026-10-07T13:21:39.4500970Z   allow-unsafe-pr-checkout: false
+2026-10-07T13:21:39.4501829Z ##[endgroup]
+2026-10-07T13:21:39.5390418Z (node:1944) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-07T13:21:39.5394120Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-07T13:21:39.5519833Z Syncing repository: taylorhawksec/ci-replica-poc
+2026-10-07T13:21:39.5522466Z ##[group]Getting Git version info
+2026-10-07T13:21:39.5523804Z Working directory is '/home/runner/work/ci-replica-poc/ci-replica-poc'
+2026-10-07T13:21:39.5525879Z [command]/usr/bin/git version
+2026-10-07T13:21:39.5627891Z git version 2.55.0
+2026-10-07T13:21:39.5653986Z ##[endgroup]
+2026-10-07T13:21:39.5670689Z Temporarily overriding HOME='/home/runner/work/_temp/00d0e0ca-0773-4c1e-aac1-5620805f863e' before making global git config changes
+2026-10-07T13:21:39.5673852Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:21:39.5679391Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ci-replica-poc/ci-replica-poc
+2026-10-07T13:21:39.5730891Z Deleting the contents of '/home/runner/work/ci-replica-poc/ci-replica-poc'
+2026-10-07T13:21:39.5736230Z ##[group]Initializing the repository
+2026-10-07T13:21:39.5748195Z [command]/usr/bin/git init /home/runner/work/ci-replica-poc/ci-replica-poc
+2026-10-07T13:21:39.5896891Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-07T13:21:39.5900020Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-07T13:21:39.5904015Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-07T13:21:39.5905263Z hint: call:
+2026-10-07T13:21:39.5905933Z hint:
+2026-10-07T13:21:39.5906769Z hint: 	git config --global init.defaultBranch <name>
+2026-10-07T13:21:39.5907846Z hint:
+2026-10-07T13:21:39.5909144Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-07T13:21:39.5911115Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-07T13:21:39.5912178Z hint:
+2026-10-07T13:21:39.5912988Z hint: 	git branch -m <name>
+2026-10-07T13:21:39.5913784Z hint:
+2026-10-07T13:21:39.5914855Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-07T13:21:39.5916706Z Initialized empty Git repository in /home/runner/work/ci-replica-poc/ci-replica-poc/.git/
+2026-10-07T13:21:39.5920294Z [command]/usr/bin/git remote add origin https://github.com/taylorhawksec/ci-replica-poc
+2026-10-07T13:21:39.5962504Z ##[endgroup]
+2026-10-07T13:21:39.5963835Z ##[group]Disabling automatic garbage collection
+2026-10-07T13:21:39.5967976Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-07T13:21:39.6007581Z ##[endgroup]
+2026-10-07T13:21:39.6009885Z ##[group]Setting up auth
+2026-10-07T13:21:39.6014017Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:21:39.6056508Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:21:39.6587929Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:21:39.6594024Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:21:39.6772808Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-07T13:21:39.6814907Z ##[endgroup]
+2026-10-07T13:21:39.6816708Z ##[group]Fetching the repository
+2026-10-07T13:21:39.6825140Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/pull/1/head:refs/remotes/pull/1/head
+2026-10-07T13:21:40.2644836Z remote: Enumerating objects: 15, done.        
+2026-10-07T13:21:40.2647478Z remote: Counting objects:   6% (1/15)        
+2026-10-07T13:21:40.2651934Z remote: Counting objects:  13% (2/15)        
+2026-10-07T13:21:40.2656198Z remote: Counting objects:  20% (3/15)        
+2026-10-07T13:21:40.2657431Z remote: Counting objects:  26% (4/15)        
+2026-10-07T13:21:40.2658535Z remote: Counting objects:  33% (5/15)        
+2026-10-07T13:21:40.2660106Z remote: Counting objects:  40% (6/15)        
+2026-10-07T13:21:40.2662093Z remote: Counting objects:  46% (7/15)        
+2026-10-07T13:21:40.2663394Z remote: Counting objects:  53% (8/15)        
+2026-10-07T13:21:40.2664630Z remote: Counting objects:  60% (9/15)        
+2026-10-07T13:21:40.2665853Z remote: Counting objects:  66% (10/15)        
+2026-10-07T13:21:40.2667054Z remote: Counting objects:  73% (11/15)        
+2026-10-07T13:21:40.2668342Z remote: Counting objects:  80% (12/15)        
+2026-10-07T13:21:40.2669946Z remote: Counting objects:  86% (13/15)        
+2026-10-07T13:21:40.2671345Z remote: Counting objects:  93% (14/15)        
+2026-10-07T13:21:40.2673085Z remote: Counting objects: 100% (15/15)        
+2026-10-07T13:21:40.2673848Z remote: Counting objects: 100% (15/15), done.        
+2026-10-07T13:21:40.2674599Z remote: Compressing objects:   7% (1/13)        
+2026-10-07T13:21:40.2675387Z remote: Compressing objects:  15% (2/13)        
+2026-10-07T13:21:40.2677019Z remote: Compressing objects:  23% (3/13)        
+2026-10-07T13:21:40.2678032Z remote: Compressing objects:  30% (4/13)        
+2026-10-07T13:21:40.2678755Z remote: Compressing objects:  38% (5/13)        
+2026-10-07T13:21:40.2679462Z remote: Compressing objects:  46% (6/13)        
+2026-10-07T13:21:40.2681045Z remote: Compressing objects:  53% (7/13)        
+2026-10-07T13:21:40.2681791Z remote: Compressing objects:  61% (8/13)        
+2026-10-07T13:21:40.2682502Z remote: Compressing objects:  69% (9/13)        
+2026-10-07T13:21:40.2683515Z remote: Compressing objects:  76% (10/13)        
+2026-10-07T13:21:40.2684669Z remote: Compressing objects:  84% (11/13)        
+2026-10-07T13:21:40.2685458Z remote: Compressing objects:  92% (12/13)        
+2026-10-07T13:21:40.2686352Z remote: Compressing objects: 100% (13/13)        
+2026-10-07T13:21:40.2687982Z remote: Compressing objects: 100% (13/13), done.        
+2026-10-07T13:21:40.2689002Z remote: Total 15 (delta 2), reused 13 (delta 2), pack-reused 0 (from 0)        
+2026-10-07T13:21:40.2724359Z From https://github.com/taylorhawksec/ci-replica-poc
+2026-10-07T13:21:40.2726614Z  * [new ref]         refs/pull/1/head -> pull/1/head
+2026-10-07T13:21:40.2733315Z ##[endgroup]
+2026-10-07T13:21:40.2735415Z ##[group]Determining the checkout info
+2026-10-07T13:21:40.2738163Z ##[endgroup]
+2026-10-07T13:21:40.2740573Z ##[group]Checking out the ref
+2026-10-07T13:21:40.2742898Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/head
+2026-10-07T13:21:40.2800265Z Note: switching to 'refs/remotes/pull/1/head'.
+2026-10-07T13:21:40.2802037Z 
+2026-10-07T13:21:40.2803775Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-07T13:21:40.2806463Z changes and commit them, and you can discard any commits you make in this
+2026-10-07T13:21:40.2809518Z state without impacting any branches by switching back to a branch.
+2026-10-07T13:21:40.2811534Z 
+2026-10-07T13:21:40.2813492Z If you want to create a new branch to retain commits you create, you may
+2026-10-07T13:21:40.2815952Z do so (now or later) by using -c with the switch command. Example:
+2026-10-07T13:21:40.2817824Z 
+2026-10-07T13:21:40.2818757Z   git switch -c <new-branch-name>
+2026-10-07T13:21:40.2820543Z 
+2026-10-07T13:21:40.2821917Z Or undo this operation with:
+2026-10-07T13:21:40.2823345Z 
+2026-10-07T13:21:40.2824335Z   git switch -
+2026-10-07T13:21:40.2825708Z 
+2026-10-07T13:21:40.2826866Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-07T13:21:40.2828750Z 
+2026-10-07T13:21:40.2830326Z HEAD is now at cad219f test: tidy result uploader
+2026-10-07T13:21:40.2836276Z ##[endgroup]
+2026-10-07T13:21:40.2861617Z [command]/usr/bin/git log -1 --format='%H'
+2026-10-07T13:21:40.2888728Z 'cad219f81668e3d74fe7074c4abe901d1643a55d'
+2026-10-07T13:21:40.3125812Z ##[group]Run sudo make run-tests
+2026-10-07T13:21:40.3126588Z [36;1msudo make run-tests[0m
+2026-10-07T13:21:40.3442692Z shell: /usr/bin/bash -e {0}
+2026-10-07T13:21:40.3443412Z ##[endgroup]
+2026-10-07T13:21:40.3666321Z running tests (this target is attacker-controlled in the real repo)
+2026-10-07T13:21:40.3784736Z ##[group]Run # ROBUST FIX: never execute the PR tree next to the secret - fetch the
+2026-10-07T13:21:40.3786056Z [36;1m# ROBUST FIX: never execute the PR tree next to the secret - fetch the[0m
+2026-10-07T13:21:40.3787190Z [36;1m# base-branch version of the script instead (fork-ness is irrelevant).[0m
+2026-10-07T13:21:40.3788147Z [36;1mgit fetch -q --depth=1 origin "main"[0m
+2026-10-07T13:21:40.3789144Z [36;1mgit show "origin/main:.github/scripts/upload_test_results.py" > /tmp/upload.py[0m
+2026-10-07T13:21:40.3790477Z [36;1mpython3 /tmp/upload.py[0m
+2026-10-07T13:21:40.3857032Z shell: /usr/bin/bash -e {0}
+2026-10-07T13:21:40.3857803Z env:
+2026-10-07T13:21:40.3860279Z   GCP_SERVICE_ACCOUNT_KEY: ***
+2026-10-07T13:21:40.3860931Z ##[endgroup]
+2026-10-07T13:21:41.0844192Z [benign] service account client for project=poc-demo
+2026-10-07T13:21:41.1240572Z Post job cleanup.
+2026-10-07T13:21:41.2103859Z (node:2044) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-07T13:21:41.2107894Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-07T13:21:41.2145472Z [command]/usr/bin/git version
+2026-10-07T13:21:41.2192206Z git version 2.55.0
+2026-10-07T13:21:41.2240452Z Temporarily overriding HOME='/home/runner/work/_temp/ae9b43fd-4520-428b-b886-9229e2fae21f' before making global git config changes
+2026-10-07T13:21:41.2246422Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-07T13:21:41.2251824Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ci-replica-poc/ci-replica-poc
+2026-10-07T13:21:41.2301248Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-07T13:21:41.2345830Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-07T13:21:41.2602157Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-07T13:21:41.2635130Z http.https://github.com/.extraheader
+2026-10-07T13:21:41.2648863Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-07T13:21:41.2695970Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-07T13:21:41.3262205Z Cleaning up orphan processes
+2026-10-07T13:21:41.3635803Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

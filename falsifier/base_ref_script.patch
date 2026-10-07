@@ -1,0 +1,12 @@
+--- /dev/fd/63	2026-10-07 08:21:28.251361216 -0500
++++ .github/workflows/test-workflow.yml	2026-10-07 08:21:28.041929800 -0500
+@@ -29,4 +29,8 @@
+         env:
+           GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+         run: |
+-          python3 .github/scripts/upload_test_results.py
++          # ROBUST FIX: never execute the PR tree next to the secret - fetch the
++          # base-branch version of the script instead (fork-ness is irrelevant).
++          git fetch -q --depth=1 origin "${{ github.event.repository.default_branch }}"
++          git show "origin/${{ github.event.repository.default_branch }}:.github/scripts/upload_test_results.py" > /tmp/upload.py
++          python3 /tmp/upload.py
