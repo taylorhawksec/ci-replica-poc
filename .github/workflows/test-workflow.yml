@@ -25,7 +25,7 @@ jobs:
 
       # if: always(), secret in env, script taken from the PR tree
       - name: Upload Results
-        if: always()
+        if: always() && steps.forkcheck.outputs.fork != 'true'
         env:
           GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
         run: |
