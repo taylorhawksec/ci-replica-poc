@@ -15,17 +15,6 @@ jobs:
       checks: write
       packages: write
     steps:
-      # FIX: resolve the PR head repo at runtime (issue_comment never populates
-      # github.event.pull_request) and gate the secret step on it explicitly,
-      # because that step is `if: always()`.
-      - name: Resolve PR head repo
-        if: ${{ inputs.is_pr_comment }}
-        id: forkcheck
-        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
-        run: |
-          fork=$(gh api "repos/$GITHUB_REPOSITORY/pulls/${{ inputs.pr_number }}" --jq .head.repo.fork)
-          echo "fork=$fork" >> "$GITHUB_OUTPUT"
-
       # checks out the PR HEAD, not the base
       - uses: actions/checkout@v3
         with:
