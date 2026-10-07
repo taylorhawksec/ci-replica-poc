@@ -1,0 +1,44 @@
+# Mirror of gonka-ai/gonka .github/workflows/test-workflow.yml (only the parts that matter).
+name: Reusable Test Workflow
+on:
+  workflow_call:
+    inputs:
+      test_command: { required: true, type: string }
+      pr_number:    { required: false, type: string }
+      is_pr_comment: { required: false, type: boolean }
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      packages: write
+    steps:
+      # FIX: issue_comment never populates github.event.pull_request, so the head repo
+      # must be resolved at runtime; note the secret step below is `if: always()`, so a
+      # failing step alone would NOT protect it — the step must be gated explicitly.
+      - name: Reject fork PRs
+        if: ${{ inputs.is_pr_comment }}
+        id: forkcheck
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: |
+          fork=$(gh api "repos/$GITHUB_REPOSITORY/pulls/${{ inputs.pr_number }}" --jq .head.repo.fork)
+          echo "fork=$fork" >> "$GITHUB_OUTPUT"
+          echo "PR head repo is fork=$fork"
+
+      # same as upstream:62/128/244 — the PR HEAD, not the base
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.is_pr_comment && format('refs/pull/{0}/head', inputs.pr_number) || github.ref }}
+
+      - name: Run tests
+        run: sudo make ${{ inputs.test_command }}
+
+      # same as upstream:387-405 — if: always(), secret in env, script taken from the PR tree
+      - name: Upload Results
+        if: always() && steps.forkcheck.outputs.fork != 'true'
+        env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+        run: |
+          python3 .github/scripts/upload_test_results.py

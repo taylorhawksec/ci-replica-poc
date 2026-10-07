@@ -1,0 +1,32 @@
+# Mirror of gonka-ai/gonka .github/workflows/test-workflow.yml (only the parts that matter).
+name: Reusable Test Workflow
+on:
+  workflow_call:
+    inputs:
+      test_command: { required: true, type: string }
+      pr_number:    { required: false, type: string }
+      is_pr_comment: { required: false, type: boolean }
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      packages: write
+    steps:
+      # same as upstream:62/128/244 — the PR HEAD, not the base
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.is_pr_comment && format('refs/pull/{0}/head', inputs.pr_number) || github.ref }}
+
+      - name: Run tests
+        run: sudo make ${{ inputs.test_command }}
+
+      # same as upstream:387-405 — if: always(), secret in env, script taken from the PR tree
+      - name: Upload Results
+        if: always()
+        env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+        run: |
+          python3 .github/scripts/upload_test_results.py
